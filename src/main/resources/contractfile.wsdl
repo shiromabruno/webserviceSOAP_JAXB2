@@ -1,0 +1,142 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://url.do.namespace.para.info.do.service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetRiskWebService" targetNamespace="http://url.do.namespace.para.info.do.service/">
+<wsdl:types>
+<xs:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://url.do.namespace.para.info.do.service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://url.do.namespace.para.info.do.service/">
+<xs:element name="getInfoDoSolicitante" type="tns:getInfoDoSolicitante"/>
+<xs:element name="getInfoDoSolicitanteBank" type="tns:getInfoDoSolicitanteBank"/>
+<xs:element name="getInfoDoSolicitanteBankResponse" type="tns:getInfoDoSolicitanteBankResponse"/>
+<xs:element name="getInfoDoSolicitanteResponse" type="tns:getInfoDoSolicitanteResponse"/>
+<xs:element name="resumDoClient" type="tns:resumDoClient"/>
+<xs:complexType name="getInfoDoSolicitanteBank">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoDoClient" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoClient" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAlvo" type="xs:string"/>
+<xs:element minOccurs="0" name="cnpjDaIF" type="xs:string"/>
+<xs:element minOccurs="0" name="author" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getInfoDoSolicitanteBankResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:resumDoClient"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resumDoClient">
+<xs:sequence>
+<xs:element minOccurs="0" name="cnpjDaInstituicao" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoDoCliente" type="xs:string"/>
+<xs:element minOccurs="0" name="coobriAssu" type="xs:decimal"/>
+<xs:element minOccurs="0" name="coobriRece" type="xs:decimal"/>
+<xs:element minOccurs="0" name="dataAlvoConsultada" type="xs:string"/>
+<xs:element minOccurs="0" name="dataInicioConhecimento" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listMsgDeVal" nillable="true" type="tns:BKMsgRetorno"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listDeResuOper" nillable="true" type="tns:resuDaOpe"/>
+<xs:element minOccurs="0" name="porcentDocsProc" type="xs:string"/>
+<xs:element minOccurs="0" name="porcentVolProce" type="xs:string"/>
+<xs:element name="qntDeInstitu" type="xs:int"/>
+<xs:element name="qntDeOper" type="xs:int"/>
+<xs:element name="qntOperDiscord" type="xs:int"/>
+<xs:element name="qtdOperSubJudic" type="xs:int"/>
+<xs:element minOccurs="0" name="respTotDiscord" type="xs:decimal"/>
+<xs:element minOccurs="0" name="respTotSubJud" type="xs:decimal"/>
+<xs:element minOccurs="0" name="riskIndiVen" type="xs:decimal"/>
+<xs:element minOccurs="0" name="tipoDoClient" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BKMsgRetorno">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigo" type="xs:string"/>
+<xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resuDaOpe">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaDeVencimentos" nillable="true" type="tns:resumoDoVenc"/>
+<xs:element minOccurs="0" name="modal" type="xs:string"/>
+<xs:element minOccurs="0" name="varCamb" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resumoDoVenc">
+<xs:sequence>
+<xs:element minOccurs="0" name="codVenci" type="xs:string"/>
+<xs:element minOccurs="0" name="valVenci" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getInfoDoSolicitante">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoDoClient" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoClient" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAlvo" type="xs:string"/>
+<xs:element minOccurs="0" name="author" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getInfoDoSolicitanteResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:resumDoClient"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="BKServicoException" type="tns:BKServicoException"/>
+<xs:complexType name="BKServicoException">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="getInfoDoSolicitanteBank">
+<wsdl:part element="tns:getInfoDoSolicitanteBank" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getInfoDoSolicitanteBankResponse">
+<wsdl:part element="tns:getInfoDoSolicitanteBankResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getInfoDoSolicitante">
+<wsdl:part element="tns:getInfoDoSolicitante" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getInfoDoSolicitanteResponse">
+<wsdl:part element="tns:getInfoDoSolicitanteResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="BKServicoException">
+<wsdl:part element="tns:BKServicoException" name="BKServicoException"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="IGetRiskWebService">
+<wsdl:operation name="getInfoDoSolicitanteBank">
+<wsdl:input message="tns:getInfoDoSolicitanteBank" name="getInfoDoSolicitanteBank"> </wsdl:input>
+<wsdl:output message="tns:getInfoDoSolicitanteBankResponse" name="getInfoDoSolicitanteBankResponse"> </wsdl:output>
+<wsdl:fault message="tns:BKServicoException" name="BKServicoException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getInfoDoSolicitante">
+<wsdl:input message="tns:getInfoDoSolicitante" name="getInfoDoSolicitante"> </wsdl:input>
+<wsdl:output message="tns:getInfoDoSolicitanteResponse" name="getInfoDoSolicitanteResponse"> </wsdl:output>
+<wsdl:fault message="tns:BKServicoException" name="BKServicoException"> </wsdl:fault>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="GetRiskWebServiceSoapBinding" type="tns:IGetRiskWebService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getInfoDoSolicitanteBank">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getInfoDoSolicitanteBank">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getInfoDoSolicitanteBankResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="BKServicoException">
+<soap:fault name="BKServicoException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getInfoDoSolicitante">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getInfoDoSolicitante">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getInfoDoSolicitanteResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="BKServicoException">
+<soap:fault name="BKServicoException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="GetRiskWebService">
+<wsdl:port binding="tns:GetRiskWebServiceSoapBinding" name="GetRiskWebPort">
+<soap:address location="https://url.do.service/wsGetRisk/services/GetRiskWebService"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
