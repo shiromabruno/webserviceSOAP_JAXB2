@@ -11,18 +11,4 @@ public class ShiromawebsoapApplication {
 		SpringApplication.run(ShiromawebsoapApplication.class, args);
 	}
 
-/*	@Bean
-	public Jaxb2Marshaller marshaller(){
-		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-		marshaller.setContextPath("br.com.shiroma.bruno.shiromaartifact.jaxbobjects");
-		return marshaller;
-	}
-	*/
-
-	/*
-	public WebServiceRisk serviceCliente(Jaxb2Marshaller marshaller){
-
-	}
-	*/
-
 }
