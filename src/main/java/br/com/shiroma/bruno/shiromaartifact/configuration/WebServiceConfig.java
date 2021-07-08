@@ -1,8 +1,13 @@
 package br.com.shiroma.bruno.shiromaartifact.configuration;
 
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.ws.transport.http.HttpComponentsMessageSender;
+
+
+import br.com.shiroma.bruno.shiromaartifact.service.WebServiceCliente;
 
 @Configuration
 public class WebServiceConfig {
@@ -15,21 +20,22 @@ public class WebServiceConfig {
 		return marshaller;
 	}
 	
-	/*@Bean
+	@Bean
 	public WebServiceCliente serviceClient(Jaxb2Marshaller marshaller) {
 		WebServiceCliente cliente = new WebServiceCliente();
-		cliente.setDefaultUri();
-		cliente.setMashaller(marshaller);
-		cliente.setUnmashaller(marshaller);
+		cliente.setDefaultUri("URL");
+		cliente.setMarshaller(marshaller);
+		cliente.setUnmarshaller(marshaller);
 		cliente.setMessageSender(defaultMwMessageSender());
+		return cliente;
 	}
-	*/
 	
-
-	/*
-	public WebServiceRisk serviceCliente(Jaxb2Marshaller marshaller){
-
+	@Bean
+	public HttpComponentsMessageSender defaultMwMessageSender(){
+		HttpComponentsMessageSender messageSender = new HttpComponentsMessageSender();
+		messageSender.setCredentials(new UsernamePasswordCredentials("UserNameHere", "PasswordHere"));
+		return messageSender;
 	}
-	*/
+	
 
 }
